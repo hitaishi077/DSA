@@ -4,15 +4,16 @@ public class selectionSort{
         int i,j;
 
         for(i=0;i<n;i++){
+            int min = i;
             for(j=i+1;j<n;j++){
-              if(arr[i]>arr[j]){
-                // swap arr[i] and arr[j]
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-
-              }  
+                if(arr[j]<arr[min]){
+                    min = j;
+                }
             }
+            // swap arr[i] and arr[min]
+            int temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
         }
         return arr;
     }
