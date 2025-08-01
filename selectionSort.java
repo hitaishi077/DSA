@@ -4,7 +4,7 @@ public class selectionSort{
         int i,j;
 
         for(i=0;i<n;i++){
-            for(j=i;j<n;j++){
+            for(j=i+1;j<n;j++){
               if(arr[i]>arr[j]){
                 // swap arr[i] and arr[j]
                 int temp = arr[i];
