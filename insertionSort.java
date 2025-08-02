@@ -1,37 +1,34 @@
 import java.util.*;
 public class insertionSort{
-    public static int[] insertionSort(int arr[], int n){
-            int i,j ;
-            for(i=1;i<n;i++){
-                for(j=i-1;j>=0;j--){
-                    if(arr[j] > arr[j+1]){
-                        // swap arr[j] and arr[j+1]
-                        int temp = arr[j];
-                        arr[j] = arr[j+1];
-                        arr[j+1] = temp;
-                    } else {
-                        break; // No need to continue if the order is correct
-                    }
-
-                }
-            }
-            return arr;
+    public static int[] insertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j]; // shift
+            j--;
+        }
+        arr[j + 1] = key; // insert
     }
-    public static void main(String args[]){
-        int a[], n, i, z[];
+    return arr;
+}
+
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of array: ");
-        n = sc.nextInt();
-        System.out.println("Enter the elements of array: ");
-        a = new int[n]; 
-        for(i = 0; i < n; i++){
-            a[i] = sc.nextInt();
-        }
-        z = insertionSort(a, n);
-        System.out.println("Sorted array:");
-        for(i = 0; i < n; i++){
-            System.out.print(z[i] + " ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter the elements of array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
         }
 
+        insertionSort(arr, n);
+
+        System.out.println("Sorted array:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
     }
 }
